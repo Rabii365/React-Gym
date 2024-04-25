@@ -24,19 +24,19 @@ const Exercises = ({ setExercises, exercises, bodyPart }) => {
       let exercisesData = [];
       if (bodyPart === "all") {
         exercisesData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises",
+          "https://exercisedb.p.rapidapi.com/exercises?limit=216&offset=9",
           exerciseOptions
         );
       } else {
         exercisesData = await fetchData(
-          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=27`,
           exerciseOptions
         );
       }
       setExercises(exercisesData);
     };
     fetchExercisesData();
-  }, [bodyPart]);
+  }, [bodyPart, setExercises]);
 
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
